@@ -2,11 +2,16 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 import { FormWrapper, Input } from './Filter.styled';
 
-export const Filter = ({ onChange }) => {
+export const Filter = ({ onChange, valueFilter, onSubmit }) => {
   const FilterField = (
-    <Formik>
+    <Formik initialValues={{ filter: '' }} onSubmit={onSubmit}>
       <FormWrapper>
-        <Input type="text" name="filter" onChange={onChange} />
+        <Input
+          type="text"
+          name="filter"
+          value={valueFilter}
+          onChange={onChange}
+        />
       </FormWrapper>
     </Formik>
   );
@@ -14,4 +19,6 @@ export const Filter = ({ onChange }) => {
 };
 Filter.propTypes = {
   onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  valueFilter: PropTypes.string.isRequired,
 };

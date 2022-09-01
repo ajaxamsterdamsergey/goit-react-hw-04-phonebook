@@ -32,7 +32,7 @@ export const ContactForm = ({ onSubmit }) => {
     </Formik>
   );
   ContactForm.propTypes = {
-    onDeleteContact: PropTypes.func,
+    onSubmit: PropTypes.func,
   };
 
   return FormSection;
